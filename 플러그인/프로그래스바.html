@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            width: 100%;
+            height: 3000px;
+            background-color: azure;
+        }
+
+        .progressbar {
+            position: fixed;
+            height: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 500;
+        }
+
+        .progressbar > .progress {
+            width: 0%; /*프로그래스바의 진행 정도*/
+            height: 100%;
+            transition: width 0.3s ease; /*애니메이션 추가*/
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <!--들어갈 컨텐츠 공간 설정-->
+        <div class="content"></div>
+
+        <div id="progressbar" class="progressbar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+
+    <!-- 자바 스크립트 -->
+    <script>
+        window.addEventListener("DOMContentLoaded",function(){ // dom객체 모두 실행후 실행
+            // 스크롤 이벤트 실행
+            window.addEventListener("scroll", function(){
+                // 프로그래스바가 있다면 실행할 수 있도록 if문 작성
+                if(document.querySelector(".progressbar") !=null) {
+                    setProgress();
+                }
+            })
+        });
+
+        function setProgress(){
+            // 스크롤한 높이
+            let currY = document.documentElement.scrollTop 
+            // 전체 높이
+            let total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            // 너비에 들어갈 퍼센트
+            let percentage = (currY/total)*100
+            document.querySelector(".progress").style.width = percentage + "%";
+        }
+    </script>
+</body>
+</html>

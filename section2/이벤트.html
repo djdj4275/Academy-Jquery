@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+
+</head>
+<body>
+    <h1>클릭해주세요</h1>
+    <h2>동일하게 클릭해주세요</h2>
+
+    <button id="multi_button">마우스로 클릭하세요</button>
+    <button id="delete_event">옆의 버튼의 이벤트중 mouseenter의 이벤트가 사라집니다</button>
+    <p id="text"></p>
+
+    <button id="one_button">한번만 실행되는 버튼입니다</button>
+
+    <button id="list_add">리스트를 추가합니다</button>
+
+    <ul>
+        <li><a href="#">첫번째러스트입니다</a></li>
+        <li><a href="#">두번째러스트입니다</a></li>
+        <li><a href="#">세번째러스트입니다</a></li>
+        <li><a href="#">네번째러스트입니다</a></li>
+    </ul>
+
+    <ol>
+        <li><a href="#">첫번째러스트입니다</a></li>
+        <li><a href="#">두번째러스트입니다</a></li>
+        <li><a href="#">세번째러스트입니다</a></li>
+        <li><a href="#">네번째러스트입니다</a></li>
+    </ol>
+
+    <div class="outbox" style="background-color : cadetblue; padding: 20px;">
+        <p id="p">p태그안의 <span id="span">span태그</span>입니다</p>
+    </div>
+
+    <div class="outbox_capture" style="background-color : yellowgreen; padding: 20px;">
+        <p id="p_capture">p태그안의 <span id="span_capture">span태그</span>입니다</p>
+    </div>
+
+    <!--스크립트-->
+    <script>
+        $("h1, h2").on("click",function() {
+            // this는 현재 이벤트가 일어난 요소
+            // 현재 선택된 요소
+            $(this).css("color","red");
+        });
+
+        $("#multi_button").on({
+            // 여러개의 이벤트 핸들러를 실행할 수 있다.
+            // 형태는 자바스크립트의 객체.
+            click : function () {
+                $("#text").text("마우스를 클릭했습니다")
+            },
+            mouseenter : function () {
+                $("#text").append("마우스가 바튼위로 올라왔습니다<br>")
+            }
+        });
+
+        // one메소드를 사용하면 이벤트가 한번만 실행된다.
+        $("#one_button").one("click",function() {
+            $(this).append("한번만 실행되는 이벤트입니다")
+        });
+
+        $("#delete_event").on("click",function() {
+            //off메소드를 사용하면 이벤트를 제거할 수 있다.
+            $("#multi_button").off("mouseenter");
+        });
+
+        // a태그에 직접 접근하여 이벤트 생성
+        $("ul li a").on("click",function(e) {
+            e.preventDefault();
+            $(this).text("실행되지않습니다");
+        });
+
+        // ol의 이벤트 위임을 통해서 생성된 a태그에도 이벤트가 실행된다.
+        $("ol").on("click","a",function(e) {
+            e.preventDefault();
+            $(this).text("실행되지않습니다");
+        });
+
+        $("#list_add").on("click",function() {
+            $("ul").append("<li><a href='#'>추가된리스트입니다</a></li>")
+            $("ol").append("<li><a href='#'>추가된리스트입니다</a></li>")
+        });
+
+        // 이벤트 버블링 (안에서부터 바깥으로) - 기본 전파방식, JQuery방식
+        $(".outbox").on("click",function() {
+            $("body").append("outbox가 클릭되었습니다<br>");
+        });
+        $("#p").on("click",function() {
+            $("body").append("p가 클릭되었습니다<br>");
+        });
+
+        $("#span").on("click",function(e) {
+            e.stopPropagation(); // 이벤트가 위로 버블링되는것을 막는다.
+            $("body").append("span이 클릭되었습니다<br>");
+        });
+
+        // 이벤트 캡쳐링 (바깥에서 안으로)
+        document.querySelector(".outbox_capture")
+            .addEventListener("click",function() { 
+                $("body").append("outbox가 클릭되었습니다<br>");
+        }, true);
+
+        document.querySelector("#p_capture")
+            .addEventListener("click",function() {
+                $("body").append("p가 클릭되었습니다<br>");
+        }, true);
+
+        document.querySelector("#span_capture")
+            .addEventListener("click",function() {
+                $("body").append("span이 클릭되었습니다<br>");
+        }, true);
+    </script>
+</body>
+</html>

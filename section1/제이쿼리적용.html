@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--제이쿼리 소스를 복사해서 사용(사이트에서 복사)-->
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <p>제이쿼리를 이용하여 접근</p>
+
+    <ul>
+        <li>첫번째 리스트</li>
+        <li>두번째 리스트</li>
+        <li id="li_id">세번째 리스트</li>
+        <li>네번째 리스트</li>
+    </ul>
+        <button>버튼</button>
+
+        <form id="form_id">
+            <input type="checkbox" name="" id="text_check" checked> 
+            체크 박스를 누르면 아래 입력창이 활성화됩니다. <br>
+            <input type="text" disabled="true" id="text_input" class="hidden">
+        </form>
+
+        
+    <script>
+        $(function() { // 문서준비 메소드
+            $("p").on("click",function() { // p태그를 클릭시 익명함수 실행 (이벤트 메소드)
+                const p = $("p"); // 제이쿼리 객체를 변수에 넣어서 사용가능
+                
+                $("p").css("color","red").html("내용을 바꿉니다"); 
+
+                // 요소 내부 추가
+                $("body").append($("<p>").text("새로만든p태그입니다"));
+                    
+                // 요소 외부 추가
+                $("p:first").after($("<p>").text("새로만든p태그입니다")); 
+                // first를 하지않고 넣으면 위의 생성된 p태그 뒤에도 생겨 1개가 아닌 총 2개가 만들어짐
+                
+                $("p:last").remove(); //마지막 붙은 p태그만 삭제
+
+                $("body").append($("h1").clone()); // h1태그 들고와서 복제후 추가
+                
+                // 동일하게 제이쿼리 메소드를 사용
+                p.css("background-color","yellow");
+            });
+        });
+
+        $("button").on("click",function() {
+            // 자식요소 탐색
+            $("ul").children().first().css("color","blue");
+            // 필터 메소드를 이용한 탐색
+            $("ul").children().filter(":last").css("color","blue");
+            // find 메소드를 이용한 자손탐색
+            $("ul").find("#li_id").css(
+                {
+                    color : "yellow",
+                    backgroundColor : "blue"
+                    // - 으로 두개의 단어가 연결된 스타일 이름은
+                    // "" 감싸서 사용을 하거나 ex."background-color"
+                    // 첫번째 단어 뒤에 오는 첫 알파벳을 대문자로 사용 ex.backgroundColor
+                }
+            );
+            // css의 스타일 값에 접근
+            console.log ( $("#li_id").css("backgroundColor") );
+        });
+
+        $("#text_check").on("click",function() {
+            console.log($("#text_check").prop("checked")); 
+            // 값을 1개만 넣어줄 때는 "" 감싼 문자열로 ex."checked"
+            // 값을 여러개 넣어줄 때는 {} 감싼 객체로 ex.{ 변수명 : 값/메소드 , }
+            if ( $("#text_check").prop("checked") ) { // 체크 되었을때 true
+                // 체크 되었을때
+                $("#text_input").prop({ // prop와 attr을 통해 속성 접근
+                    disabled : false
+                });
+                $("#text_input").removeClass("hidden"); // class 제거
+            }
+            else {
+                // 체크 안되었을때
+                $("#text_input").attr("disabled",true);
+                $("#text_input").addClass("hidden"); // class 추가
+            }
+
+            $("h1").toggleClass("color");
+        });
+        
+    </script>
+</body>
+</html>

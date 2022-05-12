@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+	<!-- CSS 스타일 시트-->
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+	<!-- fontawesom CSS -->
+	<link rel="stylesheet" href="./css/all.css">
+		
+	<!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- 만든 자바스크립트 -->
+	<script src="./js/common.js"></script>
+    <script src="./js/main.js"></script>
+
+	<!-- 제이쿼리 플러그인 (슬릭) -->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+</head>
+
+
+<body>
+    <!--헤더 영역-->
+	<div id="header_wrap">
+		<header class="header_inner">
+			<h1>
+				<!-- 로고 이미지 -->
+				<a href="#">
+				<picture>
+                    <img src="./images/logo.png" alt="Green">
+				</picture>
+				</a>
+			</h1>
+
+			<!-- 모바일 메뉴로도 활용하기위헤 moblie_meue_open 버튼 추가 -->
+			<p class="mobile_menu_open">
+				<button>
+                    <span class="blind">메뉴 열기</span>
+					<!--CSS로 표현된 햄버거아이콘-->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+				</button>
+			</p>
+			<!-- 모바일 메뉴로도 활용하기위헤 mobile_menu_wrap추가 -->
+			<div class="mobile_menu_wrap">
+				<div class="mobile_menu_scroll">
+					<!-- 유틸메뉴 -->
+					<ul class="util_menu">
+						<!--** 직접 작성할 공간 **-->
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Sitemap</a></li>
+					</ul>
+
+
+					<!-- 글로벌네비게이션바 시작 -->
+					<nav id="gnb">
+						<h2 class="blind">메인메뉴</h2>
+						<!--** 직접 작성할 공간 **-->
+						<ul>
+							<!-- 메뉴1 -->
+							<li class="m1">
+								<a href="#">ABOUT</a>
+								<!-- 서브메뉴1-->
+								<ul>
+									<li><a href="#">그린 소개</a></li>
+									<li><a href="#">오시는 길</a></li>
+								</ul>
+							</li>
+							<!-- 메뉴2 -->
+							<li class="m2">
+								<a href="#">CLASS</a>
+								<!-- 서브메뉴2-->
+								<ul>
+									<li><a href="#">전체 보기</a></li>
+									<li><a href="#">분야별 소개</a></li>
+								</ul>
+							</li>
+							<!-- 메뉴3 -->
+							<li class="m3">
+								<a href="#">COMMUNITY</a>
+								<!-- 서브메뉴3-->
+								<ul>
+									<li><a href="#">공지사항</a></li>
+									<li><a href="#">뉴스</a></li>
+								</ul>
+							</li>
+							<!-- 메뉴4-->
+							<li class="m4"><a href="#">동영상강의</a></li>
+
+						</ul>
+
+
+					</nav>
+					<!-- 글로벌네비게이션바 끝 -->
+				</div>
+
+				<!-- 모바일 메뉴로도 활용하기위헤 mobile_menu_close 버튼 추가 -->
+				<p class="mobile_menu_close">
+					<button>
+						<span class="blind">메뉴닫기</span>
+						<span></span>
+						<span></span>
+					</button>
+				</p>
+				
+
+			</div>
+		</header>
+	</div>
+	<!--//헤더 영역-->
+
+
+	<!--콘테이너 영역-->
+	<div id="container">
+		<!-- 이미지 슬라이더 섹션 -->
+        <section id="main_visual" class="rounded">
+			<h3 class="blind">HOT PICTURE</h3>
+
+			<!-- main_visual_slide 에 이미지 슬라이더 시작 -->
+			<!--** 직접 작성할 공간 **-->
+			<div class="main_visual_slide">
+				<div>
+					<div class="visual_item_wrap item1">
+						<h4 class="visual_title">첫번째 소개</h4>
+					<p>
+						<span>첫번째 소개가 들어갑니다</span>
+					</p>
+					<p class="detail_view"><a href="#">자세히 보기</a></p>
+					</div>
+				</div>
+				<div>
+					<div class="visual_item_wrap item2">
+						<h4 class="visual_title">두번째 소개</h4>
+					<p>
+						<span>두번째 소개가 들어갑니다</span>
+					</p>
+					<p class="detail_view"><a href="#">자세히 보기</a></p>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- main_visual_slide 에 이미지 슬라이더 끝-->
+
+		</section>
+		<!-- //이미지 슬라이더 섹션 -->
+
+		<!-- 공지사항 섹션 -->
+		<section id="notice_tab_wrap" class="rounded">
+			<h3 class="sec_tit_1">NOTICE &amp; NEWS</h3>
+			
+			<!--** 직접 작성할 공간 **-->
+			<!-- 첫번째 탭 -->
+			<h4 class="tab_btn_1"><a href="#" class="on">공지사항</a></h4>
+			<div class="tab_container_1">
+				<ul>
+					<li><a href="#">공지사항 관련된 내용입니다.</a><span>2022.03.14</span></li>
+					<li><a href="#">공지사항 관련된 내용입니다.</a><span>2022.03.14</span></li>
+				</ul>
+				<p class="icon_more"><a href="#">more</a></p>
+			</div>
+			<!-- //첫번째 탭 -->
+
+			<!-- 두번째 탭 -->
+			<h4 class="tab_btn_2"><a href="#">새소식</a></h4>
+			<div class="tab_container_2">
+				<p class="no_write">등록된 내용이 없습니다.</p>
+			</div>
+
+			<!-- //두번째 탭 -->
+		</section>
+		<!-- //공지사항 섹션 -->
+    </div>
+
+    <!--푸터 영역-->
+    <div id="footer_wrap">
+		<footer id="footer">
+			<small>Copyright&copy;2022 그린. Green , Ltd. All Rights Reserved</small>
+		</footer>
+	</div>
+	<!--//푸터 영역-->
+</body>
+</html>

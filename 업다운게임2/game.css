@@ -1,0 +1,10 @@
+#start_button {
+    display: inline-block;
+    background-color: orange;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+}
+#start_button:hover {
+    background-color: darkorange;
+}

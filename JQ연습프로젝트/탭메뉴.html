@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+        /* 공지사항 섹션 */
+        #notice_tab_wrap{
+            width: 35.91269841269841%;/*362px*/
+            height: 332px;
+            border: 1px solid #5FCDD9;
+            border-radius: 7px;
+            background-color: #fff;
+            position: relative;
+            margin-bottom: 40px;
+            float: right;
+            padding: 22px 13px 0;
+        }
+
+        /* 공지사항 섹션 중 선택되지 않은 탭 */
+        #notice_tab_wrap h4 a{
+            background-color: #e5e1e1;
+            color: #a6a6a6;
+            text-align: center;
+            width: 84px;
+            height: 28px;
+            line-height: 26px;
+            display: inline-block;
+        }
+
+        /* 공지사항 섹션 선택된 탭*/
+        #notice_tab_wrap h4 a.on{
+            background-color: #027373;
+            color: #fff;
+        }
+
+        /* 공지사항 섹션 버튼의 위치*/
+        #notice_tab_wrap .tab_btn_1{
+            margin-bottom: 15px;
+        }
+        #notice_tab_wrap .tab_btn_2{
+            position: absolute;
+            left: 97px;
+            top: 64px;
+        }
+
+        /* 공지사항 섹션 증 내용*/
+        #notice_tab_wrap li{
+            height: 37px;
+            line-height: 37px;
+            position: relative;
+            padding-left: 24px;
+            padding-right: 70px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #notice_tab_wrap li span{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 12px;
+        }
+
+        /* 공지사항 섹션 중 아무것도 적혀있지 않을 때 중앙 정렬*/
+        #notice_tab_wrap .no_write{
+            text-align: center;
+        }
+        #notice_tab_wrap .icon_more{
+            position: absolute;
+            top: 24px;
+            right: 16px;
+            color: #027373;
+            font-size: 12px;
+        }
+
+        /* 공지사항 섹션 중 탭 컨테이너를 모두 숨김 */
+        #notice_tab_wrap > div{
+            display: none;
+        }
+        /* 공지사항 섹션 중 선택된 섹션 보임 */
+        #notice_tab_wrap > div.tab_container_1{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 공지사항 섹션 -->
+    <section id="notice_tab_wrap" class="rounded">
+        <h3 class="sec_tit_1">NOTICE &amp; NEWS</h3>
+        
+        <!--** 직접 작성할 공간 **-->
+        <!-- 첫번째 탭 -->
+        <h4 class="tab_btn_1"><a href="#" class="on">공지사항</a></h4>
+        <div class="tab_container_1">
+            <ul>
+                <li><a href="#">공지사항 관련된 내용입니다.공지사항 관련된 내용입니다.공지사항 관련된 내용입니다.</a><span>2022.03.14</span></li>
+                <li><a href="#">공지사항 관련된 내용입니다.</a><span>2022.03.14</span></li>
+            </ul>
+        </div>
+        <!-- //첫번째 탭 -->
+
+        <!-- 두번째 탭 -->
+        <h4 class="tab_btn_2"><a href="#">새소식</a></h4>
+        <div class="tab_container_2">
+            <p class="no_write">등록된 내용이 없습니다.</p>
+        </div>
+        <!-- //두번째 탭 -->
+    </section>
+    <!-- //공지사항 섹션 -->
+
+
+    <script>
+    // 탭 메뉴 숨기기 및 활성화
+    $("#notice_tab_wrap h4 a").on("click", tabmenu);
+	function tabmenu(e) {
+		/* 직접 작성할 공간 */
+		e.preventDefault();
+		const $ts = $(this); // a버튼
+		const $next = $ts.parent().next(); //a버튼의 부모 h4의 형제인 div를 들고옴
+
+		 // 현재 탭 컨테이너가 display가 none인지.
+		if($next.is(":hidden")) {
+			// 모든 버튼의 색을 회색으로 변경
+			$("#notice_tab_wrap h4 a").removeClass("on");
+			// 자신의 버튼을 활성화
+			$ts.addClass("on");
+
+			// 보이는 모든 div내용을 숨김
+			$("#notice_tab_wrap > div:visible").hide();
+			// 자신의 div내용 보임
+			$next.show();
+		}
+
+	}
+    </script>
+</body>
+</html>

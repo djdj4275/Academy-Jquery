@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini prject</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1 id="clock">00:00:00</h1>
+    <h1 id="greeting"></h1>
+
+    <!--아이디 폼-->
+    <form id="login-form">
+        <input type = "text">
+        <input type = "submit" value = "Log in">
+    </form>
+
+    <!--메모와 투두 폼-->
+    <form id="memo-form" class="hidden">
+        <input type = "text" required placeholder="메모를 입력해주세요"> 
+        <!--빈칸 입력시 다음으로 넘어가지 않게하고, 알림창이 뜨게 만들어줌-->
+        <input type = "submit" value = "메모"> 
+        <input id="todo-button" type = "button" value = "투두">
+    </form>
+    
+    <!--투두 보드-->
+    <ul class="todo" id="todo-board"></ul>
+    <!--메모 보드-->
+    <div class="flex" id="memo-board"></div>
+
+    <!-- body 아래 스크립트 시작 -->
+    <script src="./js/login.js"></script> 
+    <script src="./js/memo.js"></script>
+    <script src="./js/background.js"></script>
+    <script src="./js/clock.js"></script>
+    <script src="./js/todolist.js"></script>
+</body>
+</html>

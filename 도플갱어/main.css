@@ -1,0 +1,26 @@
+#main_visual {
+    background-color: #fff;
+    border: #5fcdd9 1px solid;
+    border-radius: 7px;
+    height: 332px;
+    width: 62%;
+    margin-top: 50px;
+}
+
+#main_visual .visual_title {
+    font-size: 17px;
+    color: #027373;
+    font-weight: bold;
+    border-color: #027373;
+}
+
+#main_visual .visual_title + p {
+    margin-bottom: 39px;
+}
+
+#main_visual .visual_title a {
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px 7px;
+}

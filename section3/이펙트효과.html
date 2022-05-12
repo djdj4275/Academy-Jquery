@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        #squad , #nemo {
+            width: 200px; 
+            height: 200px; 
+            background-color: yellow; 
+            border: 5px solid orange;
+        }
+        #nemo {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            box-shadow: 2px 2px black;
+        }
+    </style>
+</head>
+<body>
+    <button id="show_button"> 보이기</button>
+    <button id="hide_button"> 숨기기</button>
+
+    <p id="text"> 글자가 보이고 숨겨집니다</p>
+
+    <button id="toggle">토글 버튼</button>
+
+    <div id="text_box">
+        <p>이 요소는 div안의 p요소입니다</p>
+        <p>toggle을 통해 효과를 주었습니다</p>
+    </div>
+
+    <button id="fadein">보이기</button>
+    <button id="fadeout">숨기기</button>
+
+    <p id="fade_text"> 글자가 보여지고 숨겨집니다</p>
+
+    <button id="b2">버튼에 마우스를 올리면 상자가 나타나고 사라집니다</button>
+    <div id="squad">
+        <button id="stopbutton">멈춤</button>
+    </div>
+
+    <button id="slidedown">보이기</button>
+    <button id="slideup">숨기기</button>
+
+    <p id="slide_text">글자가 보여지고 숨겨집니다</p>
+
+    <h1>고정된 div 나타내기</h1>
+    <div id="nemo">
+    <button id="sb2">버튼</button>
+    </div>
+    <button id="sb">슬라이드도 나타나기</button>
+
+    <!--스크립트-->
+    <script>
+        $("#show_button").on("click",function() {
+            $("#text").show("fast"); // slow나 4000(밀리초)식으로도 가능
+        });
+
+        $("#hide_button").on("click",function() {
+            $("#text").hide();
+        });
+
+        // 요소의 숨김과 버튼 실습
+        $("#toggle").on("click",function() {
+            $("#text_box").toggle(1000);
+        });
+
+        $("#text_box").hide();
+
+        $("#fadein").on("click",function() {
+            $("#fade_text").fadeIn();
+        });
+
+        $("#fadeout").on("click",function() {
+            $("#fade_text").fadeOut();
+        });
+
+        // 페이드 효과 실습
+        $("#b2").on({
+            mouseenter : function() {
+                $("#squad").fadeIn();
+            },
+            mouseleave : function() {
+                $("#squad").delay(1000).fadeOut(); 
+                // delay는 순서가 중요 fadeout 뒤에 놔두면 페이드아웃이후 4초간 지속이 되어버림
+                $("#stopbutton").on("click",function() {
+                $("#squad").stop();
+                // 마우스가 떠나고 있는 상태에서 멈춤 버튼 클릭시 stop
+            });
+            }
+        });
+        
+
+        $("#slideup").on("click",function() {
+            $("#slide_text").slideUp();
+        });
+        $("#slidedown").on("click",function() {
+            $("#slide_text").slideDown();
+        });
+
+        // 슬라이드 효과 실습
+        $("#sb").on("click",function() {
+            $("#nemo").slideToggle();
+        });
+        $("#sb2").on("click",function() {
+            $("#nemo").slideUp();
+        });
+
+    </script>
+</body>
+</html>

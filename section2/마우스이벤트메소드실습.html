@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input id="button" type="button" value="버튼입니다">
+
+    <p>
+        클릭하면 list가 생성됩니다 <br>
+        마우스를 올리면 title의 색이 바뀝니다. 마우스가 빠져나가면 원래색으로 돌아옵니다.
+    </p>
+
+    <h1>list 생성되는 곳</h1>
+
+    <ul>
+        
+    </ul>
+
+    <script>
+        $("h1").on("mouseenter",function() {
+            $(this).css("color","red");
+        });
+        $("h1").on("mouseleave",function() {
+            $(this).css("color","black");
+        });
+
+        $("#button").on("click",function() {
+            $("ul").append("<li>새로운 리스트가 생성되었습니다</li>");
+            $("ul").append("<li>새로운 리스트가 생성되었습니다</li>");
+            $("ul").append("<li>새로운 리스트가 생성되었습니다</li>");
+        });
+    </script>
+</body>
+</html>

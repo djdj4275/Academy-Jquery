@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        #squad, #squad2 {
+            width: 100px; 
+            height: 100px; 
+            background-color: yellow; 
+            border: 5px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <!--버튼3개-->
+    <!-- slideToggle 버튼 이벤트는 click -->
+    <button id="slidetoggle">slidetoggle</button>
+    <!-- stop() -->
+    <button id="stop">stop</button>
+    <!-- finish() -->
+    <button id="finish">finish</button>
+    <!-- 아래 div를 제어-->
+
+    <div id="squad"></div>
+
+    <button id="animate">사용자 애니메이션</button>
+    <div id="squad2"></div>
+
+    <script>
+        $("#slidetoggle").on("click",function() {
+            $("#squad").slideToggle(4000);
+        });
+        $("#stop").on("click",function() {
+            $("#squad").stop();
+        });
+        $("#finish").on("click",function() {
+            $("#squad").finish();
+        });
+
+        $("#animate").on("click",function() {
+            $("#squad2").animate({
+                // css 속성과 값, 끝날때의 형태, 진행시간등을 정할수있다.
+                opacity : 0,
+                width : 0,
+                height : 0
+            }, 1000, function() {
+                $("#animate").text("이벤트가 끝났습니다");
+            });
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+.hidden {
+    display: none; /* 로그인창 입력후 남아있는 로그인창 없애기 위한 옵션 */
+}
+#clock {
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 7px black;
+    font-size: 4em; /*원래 크기의 배*/
+}
+#greeting {
+    text-align: center;
+    color: white;
+}
+form {
+    text-align: center;
+}
+form input[type="text"]{
+    background-color: transparent; /*transparent는 투명*/
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+form input[type="text"]::placeholder {
+    color: white;
+    text-align: center;
+}
+form input[type="text"]:focus {
+    outline: none;
+}
+form input[type="submit"], form input[type="button"] {
+    background-color: lightgray;
+    border: none;
+    border-radius: 30px;
+    padding: 5px 10px;
+}
+
+form input[type="submit"]:hover {
+    background-color: lightblue;
+}
+form input[type="button"]:hover {
+    background-color: lightpink;
+}
+
+ul {
+    list-style-type: none;
+}
+ul li {
+    border-bottom: 1px solid white;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+ul li button {
+    float: right;
+}
+
+.flex {
+    margin: 30px 10px;
+    display: flex;  /* flex는 한줄로 다 붙음 */
+    flex-wrap: wrap; /* 크기가 오버하면 밑의 창으로 내려감 */
+}
+
+.flex div {
+    width: 200px;
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px; /* 값 자체 안에 공간 만들기 */
+    margin: 10px; /* 요소들끼리 띄우기 */
+    word-break: break-word; /* 글자입력시 칸을 초과하면 밑줄로 자동 옮겨주는것 */
+}

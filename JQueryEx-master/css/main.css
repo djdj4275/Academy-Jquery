@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+
+/* 이미지 슬라이더 섹션 */
+#main_visual{
+    width: 62.797619047619044%;/*633px*/
+    height: 332px;
+    border: 1px solid #5FCDD9;
+    border-radius: 7px;
+    background-color: #fff;
+    margin-bottom: 40px;
+    float: left;
+    position: relative;
+}
+
+/* 이미지 슬라이더 섹션 중 슬라이더 이미지 영역 */
+#main_visual .visual_item_wrap{
+    padding: 36px 11.532385466034755% 20px 46.44549763033176%; /*36px 73px 20px 294px*/
+    min-height:332px;
+    position: relative;
+}
+#main_visual .visual_item_wrap:after{
+    content: "";
+    width: 27.33017377567141%;/*173px*/
+    height: 276px;
+    position: absolute;
+    left: 11.848341232227488%; /*75px*/
+    top: 36px;
+    background: url(../images/first.jpg) 0 0 no-repeat;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+}
+#main_visual .visual_item_wrap.item2:after{
+    background-image: url(../images/second.jpg);
+}
+
+
+/* 이미지 슬라이더 섹션 중 제목과 내용 영역 */
+#main_visual .visual_title{ 
+    font-size: 17px;
+    color: #027373;
+    font-weight: bold;
+    margin-bottom: 17px;
+    border-color:#027373;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+#main_visual .visual_item_wrap.item2 .visual_title{
+    color: #33776a;
+}
+#main_visual .visual_title + p{
+    margin-bottom: 39px;
+}
+
+/* 이미지 슬라이더 섹션 중 버튼 영역 */
+#main_visual .detail_view a{
+    background-color: #172026;
+    color: #fff;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 5px 20px 7px;
+}
+#main_visual .detail_view a:hover, #main_visual .detail_view a:focus{
+    background-color: #027373;
+}
+
+
+
+
+/* 슬릭 디자인 시작 */
+/* 아래 이미지 위치를 알리는 점 디자인 */
+#main_visual .slick-dots { display: block; width: 100%; text-align: center;
+                            position: relative; bottom: 40px;}
+#main_visual .slick-dots li { display: inline-block; width: 15px; height: 15px;
+                            margin: 5px;}
+#main_visual .slick-dots li button {
+    border: none; background-color: #5FCDD9; font-size: 0; display: block;
+    width: 15px; height: 15px; border-radius: 50%; line-height: 0;
+}
+#main_visual .slick-dots li.slick-active button { background-color: #027373; }
+
+
+/* 버튼 초기화 */
+#main_visual .slick-prev, #main_visual .slick-next {
+    border: none; background-color: transparent;
+}
+
+
+/* 폰트어썸을 이용한 버튼*/
+#main_visual .slick-prev {
+    position: absolute; left: 0; bottom: 45px;
+    z-index: 1000; width: 30px; height: 30px; display: inline-block;
+    text-indent: -9999px;
+}
+#main_visual .slick-prev::before {
+    content: "\f053";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    text-indent: 0;
+    color: #027373;
+    position: absolute; left: 9px; top: 0px;
+    font-size: 2em;
+}
+#main_visual .slick-next {
+    position: absolute; right: 0; bottom: 45px;
+    z-index: 1000; width: 30px; height: 30px; display: inline-block;
+    text-indent: -9999px;
+}
+#main_visual .slick-next::before {
+    content: "\f054";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    text-indent: 0;
+    color: #027373;
+    position: absolute; left: 9px; top: 0px;
+    font-size: 2em;
+}
+/* 슬릭 디자인 완료 */
+
+
+
+/* 공지사항 섹션 */
+#notice_tab_wrap{
+    width: 35.91269841269841%;/*362px*/
+    height: 332px;
+    border: 1px solid #5FCDD9;
+    border-radius: 7px;
+    background-color: #fff;
+    position: relative;
+    margin-bottom: 40px;
+    float: right;
+    padding: 22px 13px 0;
+}
+
+/* 공지사항 섹션 중 선택되지 않은 탭 */
+#notice_tab_wrap h4 a{
+    background-color: #e5e1e1;
+    color: #a6a6a6;
+    text-align: center;
+    width: 84px;
+    height: 28px;
+    line-height: 26px;
+    display: inline-block;
+}
+
+/* 공지사항 섹션 선택된 탭*/
+#notice_tab_wrap h4 a.on{
+    background-color: #027373;
+    color: #fff;
+}
+
+/* 공지사항 섹션 버튼의 위치*/
+#notice_tab_wrap .tab_btn_1{
+    margin-bottom: 15px;
+}
+#notice_tab_wrap .tab_btn_2{
+    position: absolute;
+    left: 97px;
+    top: 64px;
+}
+
+/* 공지사항 섹션 증 내용*/
+#notice_tab_wrap li{
+    height: 37px;
+    line-height: 37px;
+    position: relative;
+    padding-left: 24px;
+    padding-right: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#notice_tab_wrap li span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+/* 공지사항 섹션 중 아무것도 적혀있지 않을 때 중앙 정렬*/
+#notice_tab_wrap .no_write{
+    text-align: center;
+}
+#notice_tab_wrap .icon_more{
+    position: absolute;
+    top: 24px;
+    right: 16px;
+    color: #027373;
+    font-size: 12px;
+}
+
+/* 공지사항 섹션 중 탭컨테이너를 모두 숨김 */
+#notice_tab_wrap > div{
+    display: none;
+}
+/* 공지사항 섹션 중 선택된 섹션 보임 */
+#notice_tab_wrap > div.tab_container_1{
+    display: block;
+}
+
+
+/***************
+미디어 쿼리 영역
+****************/
+@media (max-width:800px) {
+    #main_visual, #notice_tab_wrap{
+        width: auto;
+        float: none;
+    }    
+}
+
+/* 모바일 일때 미디어 쿼리*/
+@media (max-width:480px) {
+    #main_visual{height: auto;}
+    #main_visual .visual_item_wrap{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    #main_visual .visual_title{
+        margin-bottom: 82%;/*270px*/
+    }
+    #main_visual .visual_item_wrap:after{
+        width: 36.04166666666667%;
+        min-width:80px;
+        background-position-x: center;
+        left: 50%;
+        top: 70px;
+        transform:translateX(-50%);
+    }
+    #main_visual .visual_title + p{
+        margin-bottom: 10px;
+    }
+    #main_visual .visual_title + p + p{
+        margin-bottom: 50px;
+    }
+}
+@media (max-width:400px) {
+    #main_visual .visual_title{
+        margin-bottom: 96%;
+    }
+}

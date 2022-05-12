@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- fontawesom CSS -->
+	<link rel="stylesheet" href="./css/all.css">
+
+    <!-- 제이쿼리 플러그인 -->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	
+
+    <style>
+    /* 슬릭 디자인 시작 */
+    /* 아래 이미지 위치를 알리는 점 디자인 */
+    #main_visual .slick-dots {display: block; width: 100%; text-align: 
+        center; position: relative; bottom: 40px;}
+    #main_visual .slick-dots li {display: inline-block; width: 15px;
+        height: 15px; margin: 5px;}
+    #main_visual .slick-dots li button {
+        border:  none;
+        font-size: 0; 
+        line-height: 0; 
+        display: block; 
+        width: 15px; height: 15px;
+        cursor: pointer; 
+        background: #04BFAD; 
+        border-radius: 50%;
+    }
+    #main_visual .slick-dots li.slick-active button {background: #027373;}
+
+
+    /* 버튼 초기화 */
+    #main_visual .slick-prev, #main_visual .slick-next {
+        border:  none;
+        background-color: transparent;
+    }
+
+
+    /* 폰트어썸을 이용한 버튼*/
+    #main_visual .slick-prev {
+        position: absolute; left: 0; bottom: 45px; 
+        z-index: 1000;
+        width: 30px; height: 30px; 
+        display: inline-block;
+        text-indent: -9999px;
+    }
+    #main_visual .slick-prev::before {
+        content: "\f053";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 2em;
+        color: #04BFAD;
+        text-indent: 0;
+        position: absolute; left: 9px; top: 8px;
+    }
+    #main_visual .slick-next {
+        position: absolute; right: 10px; bottom: 45px; 
+        z-index: 1000;
+        width: 30px; height: 30px; 
+        display: inline-block;
+        text-indent: -9999px;
+    }
+    #main_visual .slick-next::before {
+        content: "\f054";
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 2em;
+        color: #04BFAD;
+        text-indent: 0;
+        position: absolute; left: 11px; top: 8px;
+    }
+    /* 슬릭 디자인 완료 */
+    </style>
+
+</head>
+<body>
+    <section id="main_visual" class="rounded">
+        <h3 class="blind">HOT PICTURE</h3>
+        <div class="main_visual_slide">
+            <div>
+                <h4 class="visual_title"> 첫번째 소개</h4>
+                <p>
+                    <span>첫번째 소개가 들어갑니다</span>
+                </p>
+                <p class="detail_view"><a href="#">자세히 보기</a></p>
+            </div>
+            <div>
+                <h4 class="visual_title"> 두번째 소개</h4>
+                <p>
+                    <span>두번째 소개가 들어갑니다</span>
+                </p>
+                <p class="detail_view"><a href="#">자세히 보기</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 스크립트 -->
+    <script>
+
+    // 슬릭 추가 및 속성 변경
+	/* 직접 작성할 공간 */
+	$(".main_visual_slide").slick({
+		autoplay : true,
+		autoplaySpeed: 3000,
+		dots: true,
+		arrows: true
+	});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>input과 focus와 blur에 따라 배경색이 달라집니다</h1>
+    <form>
+        <input type="text" id="input">
+    </form>
+    <script>
+        $("#input").on({
+            focus : function() {
+                $(this).css("background-color","yellow");
+            },
+            blur : function() {
+                $(this).css("background-color","white");
+            }
+        })
+    </script>
+</body>
+</html>

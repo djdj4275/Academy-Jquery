@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+        /* 글로벌 네비게이션 바 영역 */
+    /* 직접 작성할 공간 */
+    #gnb { position: absolute; left: 0; top: 0; width: 100%; z-index: 100;}
+    #gnb > ul > li { width: 25%; float: left; position: relative;}
+    #gnb > ul > li > a { color: #000; font-size: 18px; text-align: center;
+                    display: block;  height: 45px; line-height: 45px; }
+
+        /* 글로벌 네비게이션 바 영역 중 서브메뉴  */
+    /* 직접 작성할 공간 */
+    #gnb ul ul {
+        display: none;
+        position: absolute; left: 50%; 
+        width: 180px; margin-left: -90px;
+        background-color: #fff; border: #027373 1px solid;
+        border-top: none; border-radius: 0 0 7px 7px;  font-size: 13px;
+    }
+    #gnb ul ul a { display: block;
+        height: 40px; line-height: 40px; text-align: center;}
+
+    </style>
+
+</head>
+<body>
+
+    <header> 
+            <nav id="gnb">
+            <h2 class="blind">메인메뉴</h2>
+            <!--** 직접 작성할 공간 **-->
+            <ul>
+                <!-- 메뉴1 -->
+                <li class="m1">
+                    <a href="#">ABOUT</a>
+                    <!-- 서브메뉴1-->
+                    <ul>
+                        <li><a href="#">그린 소개</a></li>
+                        <li><a href="#">오시는 길</a></li>
+                    </ul>
+                </li>
+                <!-- 메뉴2 -->
+                <li class="m2">
+                    <a href="#">CLASS</a>
+                    <!-- 서브메뉴2-->
+                    <ul>
+                        <li><a href="#">전체 보기</a></li>
+                        <li><a href="#">분야별 소개</a></li>
+                    </ul>
+                </li>
+                <!-- 메뉴3 -->
+                <li class="m3">
+                    <a href="#">COMMUNITY</a>
+                    <!-- 서브메뉴3-->
+                    <ul>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">뉴스</a></li>
+                    </ul>
+                </li>
+                <!-- 메뉴4-->
+                <li class="m4"><a href="#">동영상강의</a></li>
+            </ul>
+        </nav>
+        <!-- 글로벌네비게이션바 끝 -->
+    </header>
+    
+
+
+
+    <script>
+        //pc와 태블릿으로 열었을때
+        $(document).on("mouseover focus",
+        "#gnb>ul>li>a", 
+        gnbPlay);
+        
+
+        //글로벌네비게이션바 여는 애니메이션
+        function gnbPlay() {
+            const $ts = $(this);
+            // PC와 태블릿일때
+            /* 직접 작성할 공간 */
+            //모든 보이는 서브메뉴를 닫는다
+            $("#gnb ul ul:visible").slideUp(300);
+            //현재 이벤트로 선택된 a태그(메뉴)의 형제(서브메뉴)를 보여준다
+            $ts.next().stop(true,true).slideDown(300);
+
+        } 
+
+        //pc와 태블릿으로 닫았을때
+        $(document).on("mouseleave",
+        "#gnb", gnbleave);
+
+        //글로벌네비게이션바 닫는 애니메이션
+        function gnbleave() {
+            /* 직접 작성할 공간 */
+            // 보이는 전체 서브메뉴를 닫고
+            $("#gnb ul ul:visible").slideUp(300);
+        }
+
+    </script>
+
+</body>
+</html>
